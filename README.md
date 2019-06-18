@@ -4,6 +4,10 @@ This extension allows you to connect to the vita using the protocol created by d
 
 ## Installing
 
+Make sure you have vitacompanion.suprx setup correctly
+
+https://github.com/devnoname120/vitacompanion
+
 Download vsix from releases tab
 install using this command 
 ```
