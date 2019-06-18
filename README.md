@@ -26,3 +26,5 @@ You will then be able to use each of the commands set by devnoname120
 >Vita: Screen off
 >Vita: Screen on
 ```
+
+Massive thanks to devnoname120 for Vita Companion
