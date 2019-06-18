@@ -9,6 +9,7 @@ Make sure you have vitacompanion.suprx setup correctly
 https://github.com/devnoname120/vitacompanion
 
 Download vsix from releases tab
+
 install using this command 
 ```
 code --install-extension vitacompanion-0.0.1.vsix
