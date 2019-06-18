@@ -2,6 +2,14 @@
 
 This extension allows you to connect to the vita using the protocol created by devnoname120
 
+## Installing
+
+Download vsix from releases tab
+install using this command 
+```
+code --install-extension vitacompanion-0.0.1.vsix
+```
+
 ## Connecting for the first time
 
 Connect to the vita using this command in the command palette
