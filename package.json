@@ -4,6 +4,10 @@
     "description": "",
     "version": "0.0.1",
     "publisher": "Slime",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/imcquee/vitacompanion-VSCODE"
+    },
     "engines": {
         "vscode": "^1.35.0"
     },
