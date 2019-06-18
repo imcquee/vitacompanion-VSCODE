@@ -1,0 +1,59 @@
+{
+    "name": "vitacompanion",
+    "displayName": "vitacompanion",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "Slime",
+    "engines": {
+        "vscode": "^1.35.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.connect",
+        "onCommand:extension.reboot",
+        "onCommand:extension.screenOn",
+        "onCommand:extension.screenOff",
+        "onCommand:extension.launch"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.connect",
+                "title": "Vita: Connect"
+            },
+            {
+                "command": "extension.reboot",
+                "title": "Vita: Reboot"
+            },
+            {
+                "command": "extension.screenOn",
+                "title": "Vita: Screen on"
+            },
+            {
+                "command": "extension.screenOff",
+                "title": "Vita: Screen off"
+            },
+            {
+                "command": "extension.launch",
+                "title": "Vita: Launch Application by ID"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21",
+        "eslint": "^4.11.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "vscode-cache": "^0.3.0"
+    }
+}
