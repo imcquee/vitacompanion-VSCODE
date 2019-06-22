@@ -36,4 +36,13 @@ You will then be able to use each of the commands set by devnoname120
 >Vita: Screen on
 ```
 
+## Touchbar Controls
+
+**X** = Kill all applications
+☾ = Screen Off
+☀ = Screen ON
+↺ = Reboot
+↑ = Launch Application
+
+
 Massive thanks to devnoname120 for Vita Companion

@@ -32,7 +32,7 @@
             {
                 "command": "extension.reboot",
                 "title": "Vita: Reboot",
-                "icon": "Images/reboot.png"
+                "icon": "Images/restart.png"
             },
             {
                 "command": "extension.screenOn",
