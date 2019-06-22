@@ -59,10 +59,18 @@ function activate(context) {
             })
         }
     });
+    let destroy_vita = vscode.commands.registerCommand('extension.destroy', function() {
+        if(!ip_addr) vscode.window.showInformationMessage("Connect to the Vita first using command >Vita: Connect")
+        else {
+            client.connect(1338, ip_addr, function (){
+                client.write('destroy\n')
+            })
+        }
+    });
 
 
 
-    context.subscriptions.push(connect_vita,reboot_vita,screen_on,screen_off,launch_vita);
+    context.subscriptions.push(connect_vita,reboot_vita,screen_on,screen_off,launch_vita,destroy_vita);
 }
 exports.activate = activate;
 

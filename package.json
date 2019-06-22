@@ -19,7 +19,8 @@
         "onCommand:extension.reboot",
         "onCommand:extension.screenOn",
         "onCommand:extension.screenOff",
-        "onCommand:extension.launch"
+        "onCommand:extension.launch",
+        "onCommand:extension.destroy"
     ],
     "main": "./extension",
     "contributes": {
@@ -30,21 +31,54 @@
             },
             {
                 "command": "extension.reboot",
-                "title": "Vita: Reboot"
+                "title": "Vita: Reboot",
+                "icon": "Images/reboot.png"
             },
             {
                 "command": "extension.screenOn",
-                "title": "Vita: Screen on"
+                "title": "Vita: Screen on",
+                "icon" : "Images/wake.png"
             },
             {
                 "command": "extension.screenOff",
-                "title": "Vita: Screen off"
+                "title": "Vita: Screen off",
+                "icon": "Images/sleep.png"
             },
             {
                 "command": "extension.launch",
-                "title": "Vita: Launch Application by ID"
+                "title": "Vita: Launch Application by ID",
+                "icon": "Images/launch.png"
+            },
+            {
+                "command": "extension.destroy",
+                "title": "Vita: Kill all Applications",
+                "icon": "Images/destroy.png"
             }
-        ]
+        ],
+        "menus": {
+            "touchBar": [
+                {
+                    "command": "extension.screenOn",
+                    "group": "TBControls"
+                },
+                {
+                    "command": "extension.screenOff",
+                    "group": "TBControls"
+                },
+                {
+                    "command": "extension.reboot",
+                    "group": "TBControls"
+                },
+                {
+                    "command": "extension.destroy",
+                    "group": "TBControls"
+                },
+                {
+                    "command": "extension.launch",
+                    "group": "TBControls"
+                }
+            ]
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
