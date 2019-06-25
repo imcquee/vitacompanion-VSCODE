@@ -42,7 +42,7 @@ You will then be able to use each of the commands set by devnoname120
 
 ☾ = Screen Off
 
-☀ = Screen ON
+☀ = Screen On
 
 ↺ = Reboot
 

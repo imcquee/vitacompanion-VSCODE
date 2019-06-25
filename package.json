@@ -37,7 +37,7 @@
             {
                 "command": "extension.screenOn",
                 "title": "Vita: Screen on",
-                "icon" : "Images/wake.png"
+                "icon": "Images/wake.png"
             },
             {
                 "command": "extension.screenOff",
@@ -92,6 +92,7 @@
         "@types/mocha": "^2.2.42"
     },
     "dependencies": {
+        "node-netcat": "^1.4.8",
         "vscode-cache": "^0.3.0"
     }
 }
