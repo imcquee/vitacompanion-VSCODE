@@ -68,6 +68,4 @@ Then run "Send and Run Payload, this will send the new eboot.bin to your device,
 ↑ = Send and Run Payload
 
 
-Massive thanks to devnoname120 - https://github.com/devnoname120 for Vita Companion
-
-Additional thanks to Rinnegatamante - https://github.com/Rinnegatamante for his php implementation of a param.sfo parser
+Massive thanks to devnoname120 for Vita Companion
