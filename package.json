@@ -1,13 +1,23 @@
 {
     "name": "vitacompanion",
     "displayName": "vitacompanion",
-    "description": "",
+    "description": "VSCODE extension that utilizes vitacompanion by devnoname120 https://github.com/devnoname120/vitacompanion",
     "version": "1.0.0",
-    "publisher": "Slime",
+    "publisher": "imcquee",
+    "author": {
+        "name": "imcquee"
+    },
+    "icon": ".github/icon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/imcquee/vitacompanion-VSCODE"
     },
+    "keywords": [
+        "Vita",
+        "Vitacompanion",
+        "Vita companion",
+        "Vitacompanion-vscode"
+    ],
     "engines": {
         "vscode": "^1.35.0"
     },

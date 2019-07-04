@@ -1,19 +1,12 @@
 # vitacompanion VSCODE extension
 
-This extension allows you to connect to the vita using the protocol created by devnoname120
+This extension allows you to connect to the vita using the protocol created by devnoname120 https://github.com/devnoname120/vitacompanion
 
 ## Installing
 
-Make sure you have vitacompanion.suprx setup correctly
+Install from here: https://marketplace.visualstudio.com/items?itemName=imcquee.vitacompanion
 
-https://github.com/devnoname120/vitacompanion
-
-Download vsix from releases tab
-
-install using this command 
-```
-code --install-extension vitacompanion-1.0.0.vsix
-```
+Or search 'vitacompanion' in VSCODE extension search
 
 ## Connecting for the first time
 
@@ -68,4 +61,6 @@ Then run "Send and Run Payload, this will send the new eboot.bin to your device,
 ↑ = Send and Run Payload
 
 
-Massive thanks to devnoname120 for Vita Companion
+Massive thanks to devnoname120 - https://github.com/devnoname120 for Vita Companion
+
+Additional thanks to Rinnegatamante - https://github.com/Rinnegatamante for his php implementation of a param.sfo parseer
