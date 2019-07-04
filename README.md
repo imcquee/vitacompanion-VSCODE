@@ -12,7 +12,7 @@ Download vsix from releases tab
 
 install using this command 
 ```
-code --install-extension vitacompanion-0.0.1.vsix
+code --install-extension vitacompanion-1.0.0.vsix
 ```
 
 ## Connecting for the first time
