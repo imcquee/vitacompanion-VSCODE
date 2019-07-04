@@ -8,7 +8,6 @@ const PromiseFtp = require('promise-ftp');
 const AdmZip = require('adm-zip');
 
 
-
 var client = 0;
 var TITLE_ID, TITLE;
 var fpath = 0;
@@ -295,7 +294,7 @@ function activate(context) {
     });
 
 
-    if(client)client.on('data', function (data) {
+    client.on('data', function (data) {
         vscode.window.showInformationMessage('Received: ' + data); 
     });
 
