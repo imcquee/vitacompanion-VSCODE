@@ -36,6 +36,25 @@ You will then be able to use each of the commands set by devnoname120
 >Vita: Screen on
 ```
 
+## Additional Commands
+
+```
+>Vita: Set Path
+>Vita: Send File or Folder
+```
+First call "Set Path" to set your path to the folder on your computer with the file or folder you want to send
+
+Then run "Send File or Folder" and you will be prompted to enter the file or folder name to send to the device
+
+```
+>Vita: Set Path
+>Vita: Send and Run Payload
+```
+
+First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files
+
+Then run "Send and Run Payload, this will send the new eboot.bin to your device, wake it up, close all other applications, and finally launch the new version
+
 ## Touchbar Controls
 
 **X** = Kill all applications
@@ -46,7 +65,7 @@ You will then be able to use each of the commands set by devnoname120
 
 ↺ = Reboot
 
-↑ = Launch Application
+↑ = Send and Run Payload
 
 
 Massive thanks to devnoname120 for Vita Companion
