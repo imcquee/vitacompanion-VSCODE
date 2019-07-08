@@ -1,12 +1,24 @@
-# vitacompanion VSCODE extension
+# vitacompanion VSCode extension
 
-This extension allows you to connect to the vita using the protocol created by devnoname120 https://github.com/devnoname120/vitacompanion
+This extension allows you to operate your PS Vita right from the Visual Studio Code IDE. This means that you can send and launch and close apps on your Vita without touching it!
+
+This makes developing homebrews and plugins for the Vita tremendously easier.
+
+**Note**: This extension uses and requires [vitacompanion](https://github.com/devnoname120/vitacompanion) in order to be able to transfer files and send commands to your Vita. See [Installing](#Installing) below to learn how to install it.
+
 
 ## Installing
 
-Install from here: https://marketplace.visualstudio.com/items?itemName=imcquee.vitacompanion
+### Vitacompanion
 
-Or search 'vitacompanion' in VSCODE extension search
+This extension requires [vitacompanion](https://github.com/devnoname120/vitacompanion) to be installed and running on your Vita.
+First you need to download it from the [releases section](https://github.com/devnoname120/vitacompanion/releases).
+Then you need to follow the [instructions](https://github.com/devnoname120/vitacompanion#readme) to install it.
+
+### This extension
+
+Install from here: https://marketplace.visualstudio.com/items?itemName=imcquee.vitacompanion
+Or search 'vitacompanion' using VSCode extension search.
 
 ## Connecting for the first time
 
