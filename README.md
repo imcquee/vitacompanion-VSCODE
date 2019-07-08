@@ -35,6 +35,8 @@ You will then be able to use each of the commands set by devnoname120
 >Vita: Set Path
 >Vita: Send File or Folder
 ```
+## Send Files
+
 First call "Set Path" to set your path to the folder on your computer with the file or folder you want to send
 
 Then run "Send File or Folder" and you will be prompted to enter the file or folder name to send to the device
@@ -44,9 +46,34 @@ Then run "Send File or Folder" and you will be prompted to enter the file or fol
 >Vita: Send and Run Payload
 ```
 
-First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files
+## Send Payload
 
-Then run "Send and Run Payload, this will send the new eboot.bin to your device, wake it up, close all other applications, and finally launch the new version
+First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files (or vpk)
+
+Then run "Send and Run Payload", this will send the new eboot.bin to your device, wake it up, close all other applications, and finally launch the new version
+
+```
+>Vita: Set Path
+>Vita: Debug Mode
+```
+Then run "Debug Mode", this will listen for changes made to the eboot.bin file and then launch your application after a change occurs. Simply run make and the new version will be installed and launched on the device. 
+
+By default it will keep the screen on. You can turn this off by using the ">Vita: Keep Vita Awake" command.
+
+## Keep Vita Awake
+
+```
+>Vita: Keep Vita Awake
+```
+
+This will intermittenly send a command to keep your Vita screen on. In a future update it will be able to kep your device awake without the screen on.
+
+## Debug Mode
+
+First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files (or vpk)
+
+
+
 
 ## Touchbar Controls
 
@@ -58,7 +85,7 @@ Then run "Send and Run Payload, this will send the new eboot.bin to your device,
 
 ↺ = Reboot
 
-↑ = Send and Run Payload
+↑ = Turn Debug Mode On and Off
 
 
 Massive thanks to devnoname120 - https://github.com/devnoname120 for Vita Companion
