@@ -39,6 +39,7 @@ You will then be able to use each of the commands set by devnoname120
 >Vita: Launch Application by ID
 >Vita: Screen off
 >Vita: Screen on
+>Vita: Kill all Applications
 ```
 
 ## Additional Commands
@@ -62,7 +63,7 @@ Then run "Send File or Folder" and you will be prompted to enter the file or fol
 >Vita: Send and Run Payload
 ```
 
-First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files (or vpk)
+First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files or vpk file. NOTE: INPUT FILES CAN NOW BE IN ANY SUBDIRECTORY AS WELL
 
 Then run "Send and Run Payload", this will send the new eboot.bin to your device, wake it up, close all other applications, and finally launch the new version
 
@@ -73,9 +74,9 @@ Then run "Send and Run Payload", this will send the new eboot.bin to your device
 >Vita: Debug Mode
 ```
 
-First call "Set Path" to set your path to the folder on your computer that holds your applications eboot.bin and param.sfo files (or vpk)
+First call "Set Path" to set your path to the root folder on your computer that holds your applications eboot.bin and param.sfo files or vpk file. NOTE: INPUT FILES CAN NOW BE IN ANY SUBDIRECTORY AS WELL
 
-Then run "Debug Mode", this will an initial payload similar to "Send and Run Payload". It will then listen for changes made to the eboot.bin file and then launch your application after a change occurs. Simply run make and the new version will be installed and launched on the device. 
+Then run "Debug Mode", this will send an initial payload similar to "Send and Run Payload" command. It will then listen for changes made to the eboot.bin file and then launch your application after a change occurs. Simply run make and the new version should be installed and launched on the device. 
 
 By default it will keep the screen on. You can turn this off by using the ">Vita: Keep Vita Awake" command.
 
@@ -85,7 +86,7 @@ By default it will keep the screen on. You can turn this off by using the ">Vita
 >Vita: Keep Vita Awake
 ```
 
-This will intermittenly send a command to keep your Vita screen on. In a future update it will be able to kep your device awake without the screen on.
+This will intermittenly send a command to keep your device screen on. In a future update it will be able to keep your device awake without the screen on.
 
 
 
