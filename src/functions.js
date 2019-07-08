@@ -243,10 +243,16 @@ async function fromDir(fpath,filter){
 };
 
 async function deb(fpath,ip_addr,client,ftpDeploy,ftp) {
-    var npath = await fromDir(fpath,'eboot.bin');
-    if(npath) chd(dir.dirname(npath));
+    var result = await fromDir(fpath,'eboot.bin');
+    var eboot = 0;
+    for(i=0;i<result.length;i++){
+        if(dir.basename(result[i]) == 'eboot.bin') eboot = result[i];
+    }
+    if(eboot) chd(dir.dirname(eboot));
+    fdeploy(fpath,ip_addr,client,ftpDeploy,ftp); 
     watcher = chokidar.watch('eboot.bin').on('change', (event, path) => {
         fdeploy(fpath,ip_addr,client,ftpDeploy,ftp); 
+        console.log("changed");
     });
 };
 
