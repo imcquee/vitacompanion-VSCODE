@@ -4,6 +4,7 @@ const Cache = require('vscode-cache');
 const FtpDeploy = require("ftp-deploy");
 const PromiseFtp = require('promise-ftp');
 const utils = require('./functions');
+const chokidar = require('chokidar');
 
 function activate(context) {
 
@@ -20,6 +21,7 @@ function activate(context) {
     var target = 0;
     var DMODE = 0;
     var SMODE = 0;
+    var eboot = 0;
 
     if(IP_cache.has('ip_addr')){
         ip_addr = IP_cache.get('ip_addr');
@@ -113,18 +115,30 @@ function activate(context) {
         if(!ip_addr) vscode.window.showInformationMessage("Connect to the Vita first using command >Vita: Connect")
         else if(!fpath) vscode.window.showInformationMessage("Please register a source first using command >Vita: Set Path") 
         else{
-            if(DMODE == 1){
-                SMODE = utils.survive(client,SMODE);
-                vscode.window.showInformationMessage("Debug Mode: Ended");
-                DMODE = 0;
-                if(watcher) watcher.close();
-            } 
-            else {
-                SMODE = utils.survive(client,0);
-                vscode.window.showInformationMessage("Debug Mode: Started");
-                DMODE = 1;
-                utils.deb(fpath,ip_addr,client,ftpDeploy,ftp);
+            async function debug_init() {
+                if(DMODE == 1){
+                    SMODE = utils.survive(client,SMODE);
+                    vscode.window.showInformationMessage("Debug Mode: Ended");
+                    DMODE = 0;
+                    if(eboot) {
+                        utils.chd(eboot); 
+                        if(watcher) watcher.unwatch('eboot.bin');
+                    }
+                    
+                } 
+                else {
+                    SMODE = utils.survive(client,0);
+                    vscode.window.showInformationMessage("Debug Mode: Started");
+                    DMODE = 1;
+                    eboot = await utils.deb(fpath,ip_addr,client,ftpDeploy,ftp);
+                    if(eboot) utils.chd(eboot);
+
+                    watcher = chokidar.watch('eboot.bin').on('change', (event, path) => {
+                        utils.fdeploy(fpath,ip_addr,client,ftpDeploy,ftp); 
+                    });
+                }
             }
+            debug_init();
         }
     });
 

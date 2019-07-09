@@ -2,7 +2,6 @@ const vscode = require('vscode');
 const fs = require('fs');
 const dir = require("path");
 const glob = require("glob");
-const chokidar = require('chokidar');
 const AdmZip = require('adm-zip');
 
 async function launch (ip_addr,target,client,ftp){
@@ -81,7 +80,6 @@ async function chd (pth) {
 }
 
 async function check_param(fpath) {
-    
     var eboot = 0;
     var param = 0;
     var vpk = 0;
@@ -91,8 +89,10 @@ async function check_param(fpath) {
         if(dir.basename(result[i]) == 'eboot.bin') eboot = result[i];
         if(dir.basename(result[i]) == 'param.sfo') param = result[i];
     }
+    
     if(eboot && param) {
         let fd = fs.openSync(param,'r');
+        
         var store1 = ["magic", "version", "keyTableOffset", "dataTableOffset" ,"indexTableEntries"];
         var store2 = ["keyOffset", "param_fmt", "paramLen", "paramMaxLen", "dataOffset"];
         var param = {};
@@ -147,7 +147,10 @@ async function check_param(fpath) {
                 TITLE_ID = await Buffer.alloc(entry_table[i]["paramLen"]);
                 await fs.readSync(fd,TITLE_ID, 0,entry_table[i]["paramLen"], param["dataTableOffset"] + entry_table[i]["dataOffset"] - 1);
                 TITLE_ID = await TITLE_ID.toString();
-                return(await TITLE_ID.substr(1, entry_table[i]["paramLen"]));
+                var retT = await TITLE_ID.substr(1, entry_table[i]["paramLen"])
+                //IP_cache.put(param,retT);
+                return(retT);
+                
             }
         }
         
@@ -248,12 +251,10 @@ async function deb(fpath,ip_addr,client,ftpDeploy,ftp) {
     for(i=0;i<result.length;i++){
         if(dir.basename(result[i]) == 'eboot.bin') eboot = result[i];
     }
-    if(eboot) chd(dir.dirname(eboot));
+    eboot = eboot.toString();
     fdeploy(fpath,ip_addr,client,ftpDeploy,ftp); 
-    watcher = chokidar.watch('eboot.bin').on('change', (event, path) => {
-        fdeploy(fpath,ip_addr,client,ftpDeploy,ftp); 
-        console.log("changed");
-    });
+    if(eboot)return dir.dirname(eboot);
+    else return 0;
 };
 
 async function uzip(vpk,fpath){
@@ -261,6 +262,7 @@ async function uzip(vpk,fpath){
     await zip.extractAllTo(fpath+"/tempV");
     
 }
+
 
 
 module.exports = {
