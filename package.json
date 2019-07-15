@@ -2,7 +2,7 @@
     "name": "vitacompanion",
     "displayName": "vitacompanion-VSCODE",
     "description": "VSCODE extension that utilizes vitacompanion by devnoname120 https://github.com/devnoname120/vitacompanion",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "publisher": "imcquee",
     "author": {
         "name": "imcquee"
@@ -129,6 +129,7 @@
     "dependencies": {
         "adm-zip": "^0.4.13",
         "chokidar": "^3.0.2",
+        "del": "^5.0.0",
         "fs": "0.0.1-security",
         "ftp-deploy": "^2.3.3",
         "glob": "^7.1.4",

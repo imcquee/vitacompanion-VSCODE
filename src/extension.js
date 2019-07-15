@@ -5,12 +5,15 @@ const FtpDeploy = require("ftp-deploy");
 const PromiseFtp = require('promise-ftp');
 const utils = require('./functions');
 const chokidar = require('chokidar');
+const dir = require("path");
 
 function activate(context) {
 
     console.log('Congratulations, your extension "vitacompanion" is now active!');
 
     var watcher = 0;
+    var watcher2 = 0;
+    var vpk = 0;
     var ftp = new PromiseFtp();
     let IP_cache = new Cache(context);
     var ftpDeploy = new FtpDeploy();
@@ -120,6 +123,10 @@ function activate(context) {
                     SMODE = utils.survive(client,SMODE);
                     vscode.window.showInformationMessage("Debug Mode: Ended");
                     DMODE = 0;
+                    if(vpk) {
+                        await utils.chd(dir.dirname(vpk)); 
+                        if(watcher2) watcher2.unwatch(vpk);
+                    }
                     if(eboot) {
                         utils.chd(eboot); 
                         if(watcher) watcher.unwatch('eboot.bin');
@@ -130,6 +137,14 @@ function activate(context) {
                     SMODE = utils.survive(client,0);
                     vscode.window.showInformationMessage("Debug Mode: Started");
                     DMODE = 1;
+                    vpk = await utils.fromDir(fpath,'*.vpk'); 
+                    if(vpk) vpk = vpk[0];
+                    if(vpk){
+                        await utils.chd(dir.dirname(vpk));
+                        watcher2 = chokidar.watch(vpk).on('change', (event, path) => {
+                            utils.fdeploy(fpath,ip_addr,client,ftpDeploy,ftp); 
+                        });
+                    } 
                     eboot = await utils.deb(fpath,ip_addr,client,ftpDeploy,ftp);
                     if(eboot) utils.chd(eboot);
 
