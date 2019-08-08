@@ -14,3 +14,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Added support for Lua applications
 - Added stay awake command to keep vita awake indefinitely (ON BY DEFAULT IN DEBUG MODE)
 - Bunch of bug fixes and formatting to make code much more readable and easier to use
+
+## [1.10]
+
+- Program should now delete temp files from previous versions
+- Lua file fixes
+

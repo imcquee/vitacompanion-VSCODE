@@ -203,6 +203,8 @@ async function fpayload(fpath, ip_addr,client,TITLE_ID,ftpDeploy,ftp) {
 }
 
 async function fdeploy(fpath,ip_addr,client,ftpDeploy,ftp) {
+    var tf = fpath + '/tempV';
+    if(fs.existsSync(tf)) await del.sync(tf, {force: true});
     var TITLE_ID = await check_param(fpath, 0);
     await fpayload(fpath,ip_addr,client,TITLE_ID,ftpDeploy,ftp);
 }
