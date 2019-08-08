@@ -2,7 +2,7 @@
     "name": "vitacompanion",
     "displayName": "vitacompanion-VSCODE",
     "description": "VSCODE extension that utilizes vitacompanion by devnoname120 https://github.com/devnoname120/vitacompanion",
-    "version": "1.11",
+    "version": "1.1.0",
     "publisher": "imcquee",
     "author": {
         "name": "imcquee"
