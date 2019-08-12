@@ -90,7 +90,7 @@ async function check_param(fpath, tmp) {
         if(dir.basename(result[i]) == 'eboot.bin') eboot = result[i];
         if(dir.basename(result[i]) == 'param.sfo') param = result[i];
     }
-    if( (eboot && param && dir.dirname(eboot) != 'tempV') || tmp) {
+    if( ( eboot && param && !dir.dirname(eboot).includes('tempV') ) || tmp) {
         let fd = fs.openSync(param,'r');
         
         var store1 = ["magic", "version", "keyTableOffset", "dataTableOffset" ,"indexTableEntries"];
@@ -157,7 +157,7 @@ async function check_param(fpath, tmp) {
     }
     else if(vpk){
         uzip(vpk,fpath);
-        if(eboot && dir.dirname(eboot) == 'tempV') return check_param(fpath, 1);
+        if(eboot && dir.dirname(eboot).includes('tempV')) return check_param(fpath, 1);
         return check_param(fpath, 0);
         
     }
@@ -198,13 +198,11 @@ async function fpayload(fpath, ip_addr,client,TITLE_ID,ftpDeploy,ftp) {
         .catch(err => vscode.window.showInformationMessage("ERROR: FTP TRANSFER FAILED"))
         .then(res => {vscode.window.showInformationMessage("Payload Transferred Successfully"); launch(ip_addr,TITLE_ID,client,ftp);})
     
-    if(fs.existsSync(tf)) await del.sync(tf, {force: true});
 
 }
 
 async function fdeploy(fpath,ip_addr,client,ftpDeploy,ftp) {
     var tf = fpath + '/tempV';
-    if(fs.existsSync(tf)) await del.sync(tf, {force: true});
     var TITLE_ID = await check_param(fpath, 0);
     await fpayload(fpath,ip_addr,client,TITLE_ID,ftpDeploy,ftp);
 }
@@ -263,7 +261,7 @@ async function deb(fpath,ip_addr,client,ftpDeploy,ftp) {
 
 async function uzip(vpk,fpath){
     var zip = new AdmZip(vpk);
-    await zip.extractAllTo(fpath+"/tempV");
+    await zip.extractAllTo(fpath+"/tempV",true);
     
 }
 

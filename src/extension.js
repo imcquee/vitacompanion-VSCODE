@@ -166,7 +166,7 @@ function activate(context) {
 
 
 
-    client.on('data', function (data) {
+    if(client) client.on('data', function (data) {
         if(!SMODE) vscode.window.showInformationMessage('Received: ' + data); 
     });
 

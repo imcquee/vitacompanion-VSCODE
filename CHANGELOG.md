@@ -20,3 +20,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Program should now delete temp files from previous versions
 - Lua file fixes
 
+## [1.11]
+
+- Fix for Windows users regarding the application not updating
+- Fixed issue when calling Set Path
+- Fixed issue when calling Connect for the first time
+
